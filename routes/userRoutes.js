@@ -1,31 +1,22 @@
- import express from "express";
+import express from "express";
+import { regiter } from "../control/userController.js";
+import { sendMail } from "../control/sendMail.js";
+// import { regiter } from "../controler/userConmtroller.js";
 
- const userRoutes =express.Router();
-//get
+const userRoute = express.Router();
 
-
-
-
-
-
+// GET
 
 
-//post
-userRoutes.post("/register",(req,res)=>{
-    const {name} = req.body;
-    res.status(200).json({data:`welcome${name}`})
-})
+// POST
+
+userRoute.post("/register",regiter)
+
+userRoute.post("/send-email",sendMail)
 
 
+// PUT
 
 
-//put
-
-
-
-
-//del
-
-
-
- export default userRoutes
+// DELETE
+export default userRoute
